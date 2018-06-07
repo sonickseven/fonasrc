@@ -1,20 +1,10 @@
 #!/usr/bin/env bash
-
-for i in *.jpg ; do
-
-	# widthImg=$(identify -format %w $i)
-	# widthImg=$(identify $i)
-	
-	echo "$i"
-
-
-
-	# if [ $widthImg > 250]; then
-	# 	convert "$i[250x>]" "tb_$i"
-	# fi
+maxWidth=250
+for img in *.jpg ; do
+	widthImg=$(identify -format %w "$img")
+	if [ "$widthImg" -gt "$maxWidth" ] ; then
+		$(convert $img -resize "250x250!" -quality 76 $img)
+	else
+		echo 'no se hace nada'
+	fi
 done
-
-
-
-
-#ffmpeg -i "$i" -acodec libmp3lame $(basename "${i/.aac}").mp3
