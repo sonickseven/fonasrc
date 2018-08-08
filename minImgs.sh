@@ -11,5 +11,5 @@ $(git add .)
 nowGit=$(date +"%Y-%m-%d")
 $(git commit -m "imagenes de $nowGit")
 
-$(git push origin master)
+# $(git push origin master)
 
