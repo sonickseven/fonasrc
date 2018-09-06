@@ -7,3 +7,9 @@ for img in *.jpg ; do
 		$(convert $img -resize "250x250!" -quality 76 $img)
 	fi
 done
+$(git add .)
+nowGit=$(date +"%Y-%m-%d")
+$(git commit -m "imagenes de $nowGit")
+
+$(git push origin master)
+
